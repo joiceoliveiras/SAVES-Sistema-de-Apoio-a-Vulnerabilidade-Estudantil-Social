@@ -1,2 +1,2 @@
 # SAVES-Sistema de Apoio a Vulnerabilidade Estudantil Social
-sistema de cadastramento de alunos em situação de vulnerabilidade social no campus.
+O projeto consiste em um sistema de cadastramento de alunos em situação de vulnerabilidade social no campus, desenvolvido com o intuito de apoiar políticas de assistência estudantil com dados reais e atualizados sobre as necessidades dos alunos, facilitando a sua permanência na faculdade.
