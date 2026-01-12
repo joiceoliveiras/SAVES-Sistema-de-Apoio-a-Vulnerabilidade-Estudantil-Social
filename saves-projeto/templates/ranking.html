@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ranking</title>
+</head>
+<body>
+
+<h1>Ranking de Vulnerabilidade</h1>
+
+<!-- Verifica se a lista de alunos foi enviada pelo Flask -->
+{% if alunos %}
+
+     <!-- Cria uma lista para exibir o ranking -->
+    <ul>
+
+     <!-- Percorre cada aluno vindo do backend -->
+    {% for a in alunos %}
+        <li>
+
+             <!-- Mostra o nome do aluno -->
+            {{ a['nome'] }} -
+
+            <!-- Mostra a pontuação de vulnerabilidade -->
+            Pontuação: {{ a['pontuacao_vulnerabilidade'] }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+
+    <!-- Caso não exista nenhum dado no banco -->
+    <p>Nenhum dado encontrado.</p>
+{% endif %}
+
+</body>
+</html>

@@ -579,6 +579,7 @@ Turno: {d[5]}
 def calcular_indice_vulnerabilidade(
     renda_per_capita,
     recebe_beneficio,
+    mora_com_familia,
     paga_aluguel,
     transporte_proprio,
     possui_filhos,
@@ -596,6 +597,9 @@ def calcular_indice_vulnerabilidade(
 
     
     if recebe_beneficio.lower() == "sim":
+        pontos += 2
+
+    if mora_com_familia.lower() == "não":
         pontos += 2
 
     
