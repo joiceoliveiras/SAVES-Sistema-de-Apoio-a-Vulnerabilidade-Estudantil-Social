@@ -1,6 +1,6 @@
 # Importa o Flask
 # e o render_template, que serve para carregar os arquivos HTML
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 # Importa o sqlite3 para conectar com o banco de dados SQLite
 import sqlite3
@@ -29,6 +29,36 @@ def login():
     # Renderiza o arquivo login.html
     return render_template('login.html')
 
+# Essa rota é responsável por processar o login do aluno.
+# Ela só aceita requisições do tipo POST, que vêm do formulário HTML.
+@app.route('/login', methods=['POST'])
+def login_aluno():
+ # Aqui eu pego o email e a senha que o usuário digitou no formulário de login
+    email = request.form['email']
+    senha = request.form['senha']
+
+# Abro a conexão com o banco de dados SQLite
+    conn = get_db_connection()
+
+
+# Faço uma consulta no banco para verificar se existe um login
+# com o email e a senha informados pelo aluno
+    aluno = conn.execute(
+        "SELECT * FROM login WHERE email = ? AND senha = ?",
+        (email, senha)
+    ).fetchone()
+
+      # Fecho a conexão com o banco após a consulta
+    conn.close()
+
+ # Se a consulta encontrou um aluno, o login é válido e redireciona para a página do aluno
+    if aluno:
+        return redirect(url_for('aluno'))
+    else:
+         # Caso não encontre, retorna para a tela de login, exibindo uma mensagem de erro
+        return render_template('login.html', erro="Email ou senha inválidos")
+
+
 
 @app.route('/aluno')
 def aluno():
@@ -47,7 +77,7 @@ def ranking():
      # Consulta que busca os alunos e suas pontuações,
     # juntando a tabela aluno com a socioeconomico
     alunos = conn.execute("""
-        SELECT 
+        SELECT
             aluno.nome,
             aluno.matricula,
             socioeconomico.pontuacao_vulnerabilidade
