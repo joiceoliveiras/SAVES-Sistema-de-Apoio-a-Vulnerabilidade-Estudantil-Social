@@ -92,7 +92,7 @@ def ranking():
 
 # Esse bloco garante que o Flask só vai rodar
 # quando esse arquivo for executado diretamente
-if __name__ == '__main__':
+if __name__ == '__main__':  #coloca o site no ar 
 
      # Inicia o servidor Flask em modo debug
     # O debug facilita os testes e mostra erros no navegador
