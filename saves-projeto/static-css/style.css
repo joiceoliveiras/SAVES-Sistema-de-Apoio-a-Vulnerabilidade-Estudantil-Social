@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(206, 206, 206);
+    overflow: hidden;
+}
+
+.content {
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 1000px;
+    height: 60%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+
+.content::before{
+    content: "";
+    position: absolute;
+    background-color:#379837 ;
+    width: 40%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+
+
+
+    left: 0%;
+}
+
+.title{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.title-bem-vindo{
+    color:#fff;
+}
+
+
+.title-acesse{
+    color:#379837;
+}
+
+.title-SAVES{
+    color:#FD661F ;
+}
+
+.description{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 25px;
+}
+
+.description-primary{
+    color: #fff;
+}
+
+.description-second{
+    color: #141414;
+}
+
+
+.btn{
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 180px;
+    align-self: center;
+    border: none;
+}
+
+.btn-primary{
+    margin-top: 15px;
+    background-color: transparent;
+    border: 1px solid #fefefe;
+    transition: background-color .5s;
+}
+
+.btn-primary:hover{
+    background-color: #fff;
+    color: #379837;
+}
+
+.btn-second{
+    margin: 10px;
+    background-color: #FD661F;
+    border: 1px solid #FD661F;
+    transition: background-color .5s;
+}
+
+.btn-second:hover{
+    background-color: transparent;
+    color: #FD661F;
+}
+
+.left-side{
+    text-align: center;
+    width: 40%;
+    z-index: 10;
+}
+
+.logo-left{
+    margin-bottom: 10px;
+    max-width: 50px;
+}
+
+.logo-right{
+    max-width: 120px;
+    margin-bottom: 15px;
+}
+.right-side{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.first-content{
+    display: flex;
+}
+
+.first-content .right-side{
+    z-index: 11;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+
+.form input{
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #ecf0f1;
+}
+
+.label-input{
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+
+.icon-modify{
+    color: #818080;
+    margin: 10px;
+    padding-block-start: 0 5px;
+}
+
+.second-content{
+    position: absolute;
+    display: flex;
+}
+
+.second-content .left-side{
+    order: 2;
+    z-index: -1;
+}
+
+.second-content .right-side{
+    order: 1;
+    z-index: -1;
+}
+
+.password{
+    margin: 15px 0;
+    color: #141414;
+    font-size: 14px;
+    text-align: center;
+}
+
+.help{
+    margin-top: 10px;
+    color: #141414;
+    font-size: 14px;
+}
+
+.sign-in-js .first-content .right-side{
+    z-index: 11; 
+}
+
+.sign-in-js .first-content .left-side{
+    z-index: 13;
+}
+
+.sign-in-js .second-content .left-side{
+    z-index: -1; 
+}
+
+.sign-up-js .content::before{
+    left: 60%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    animation: slidein 2s;
+
+    z-index: 12;
+}
+
+.sign-in-js .content::before{
+    animation: slideout 2s;
+
+    z-index: 12;
+}
+
+.sign-up-js .first-content .left-side{
+    z-index: -1; 
+}
+
+.sign-up-js .second-content .right-side{
+    z-index: 11; 
+}
+
+.sign-up-js .second-content .left-side{
+    z-index: 13;
+}
+
+/*DESLOCAMENTO CONTEUDO ATRÁS DO CONTENT:BEFORE*/
+.sign-up-js .first-content .right-side{
+    z-index: -1;
+    position: relative;
+    animation: deslocamentoEsq 2s;
+}
+
+.sign-in-js .second-content .right-side{
+    z-index: -1;
+    position: relative;
+    animation: deslocamentoDir 2s;
+}
+
+
+
+@keyframes deslocamentoEsq{
+    from{
+        left: 0px;
+        opacity: 1;
+        z-index: 12;
+    }
+
+    25%{
+        left: -80px;
+        opacity: .5%;
+
+    }
+
+    50%{
+        left: 110px;
+        opacity: .2px;
+
+    }
+
+    to{
+        left: -110px;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+@keyframes deslocamentoDir{
+    from{
+        left: 0;
+        opacity: 1;
+        z-index: 12;
+    }
+
+    25%{
+        left: 80px;
+        opacity: .5%;
+    }
+
+    50%{
+        left: 110px;
+        opacity: .2px
+    }
+
+    to{
+        left: 110px;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+
+
+
+/*ANIMAÇÃO CSS*/
+
+@keyframes slidein{
+    from {
+        left: 0;
+        width: 40%;
+    }
+
+    25% {
+        left: 5%;
+        width: 50%;
+        background-color: #FD661F;
+    }
+
+    50% {
+        left: 25%;
+        width: 60%;
+        background-color: #FD661F;
+    }
+
+    75% {
+        left: 55%;
+        width: 50%;
+    }
+
+    to {
+        left: 60%;
+        width: 40%;        
+
+    }
+}
+
+
+@keyframes slideout{
+    from {
+        left: 60%;
+        width: 40%;   
+    }
+
+    25% {
+        left: 45%;
+        width: 50%;
+    }
+
+    50% {
+        left: 25%;
+        width: 60%;
+        background-color: #FD661F;
+    }
+
+    75% {
+        left: 5%;
+        width: 50%;
+        background-color: #FD661F;
+    }
+
+    to {
+        left: 0;
+        width: 40%;
+    }
+}

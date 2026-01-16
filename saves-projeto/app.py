@@ -27,7 +27,7 @@ def get_db_connection():
 def login():
 
     # Renderiza o arquivo login.html
-    return render_template('login.html')
+    return render_template('login_esdras.html')
 
 # Essa rota é responsável por processar o login do aluno.
 # Ela só aceita requisições do tipo POST, que vêm do formulário HTML.
